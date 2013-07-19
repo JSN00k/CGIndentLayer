@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A59759B17994CC500E2D832 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59759A17994CC500E2D832 /* UIKit.framework */; };
+		1A59759D17994CC500E2D832 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59759C17994CC500E2D832 /* Foundation.framework */; };
+		1A59759F17994CC500E2D832 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59759E17994CC500E2D832 /* CoreGraphics.framework */; };
+		1A5975A517994CC600E2D832 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975A317994CC600E2D832 /* InfoPlist.strings */; };
+		1A5975A717994CC600E2D832 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975A617994CC600E2D832 /* main.m */; };
+		1A5975AD17994CC600E2D832 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975AC17994CC600E2D832 /* Default.png */; };
+		1A5975AF17994CC600E2D832 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975AE17994CC600E2D832 /* Default@2x.png */; };
+		1A5975B117994CC600E2D832 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975B017994CC600E2D832 /* Default-568h@2x.png */; };
+		1A5975BE17994CDA00E2D832 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5975BD17994CDA00E2D832 /* QuartzCore.framework */; };
+		1A5975C017994CE300E2D832 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5975BF17994CE300E2D832 /* CoreMotion.framework */; };
+		1A5975CE17994D2800E2D832 /* JTAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975C217994D2800E2D832 /* JTAAppDelegate.m */; };
+		1A5975CF17994D2800E2D832 /* JTAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975C417994D2800E2D832 /* JTAViewController.m */; };
+		1A5975D017994D2800E2D832 /* JTALabelsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975C517994D2800E2D832 /* JTALabelsView.xib */; };
+		1A5975D117994D2800E2D832 /* JTAEmbossLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975C717994D2800E2D832 /* JTAEmbossLabel.m */; };
+		1A5975D217994D2800E2D832 /* JTAIndentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975C917994D2800E2D832 /* JTAIndentView.m */; };
+		1A5975D317994D2800E2D832 /* JTAInnerShadowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975CB17994D2800E2D832 /* JTAInnerShadowLayer.m */; };
+		1A5975D417994D2800E2D832 /* JTAIndentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975CD17994D2800E2D832 /* JTAIndentLabel.m */; };
+		1A5975D717994D3500E2D832 /* JTAIndentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5975D617994D3500E2D832 /* JTAIndentImageView.m */; };
+		1A5975E617995FD800E2D832 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975E517995FD800E2D832 /* wood.png */; };
+		1A5975E81799605100E2D832 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975E71799605100E2D832 /* wall.png */; };
+		1A5975EA1799609E00E2D832 /* metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975E91799609E00E2D832 /* metal.png */; };
+		1A5975EB179967DD00E2D832 /* TwistedApeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975D817994D4500E2D832 /* TwistedApeLogo.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A59759617994CC500E2D832 /* CGIndentLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGIndentLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A59759A17994CC500E2D832 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1A59759C17994CC500E2D832 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1A59759E17994CC500E2D832 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1A5975A217994CC500E2D832 /* CGIndentLayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CGIndentLayer-Info.plist"; sourceTree = "<group>"; };
+		1A5975A417994CC600E2D832 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A5975A617994CC600E2D832 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A5975A817994CC600E2D832 /* CGIndentLayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGIndentLayer-Prefix.pch"; sourceTree = "<group>"; };
+		1A5975AC17994CC600E2D832 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1A5975AE17994CC600E2D832 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1A5975B017994CC600E2D832 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1A5975BD17994CDA00E2D832 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1A5975BF17994CE300E2D832 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1A5975C117994D2800E2D832 /* JTAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAAppDelegate.h; sourceTree = "<group>"; };
+		1A5975C217994D2800E2D832 /* JTAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAAppDelegate.m; sourceTree = "<group>"; };
+		1A5975C317994D2800E2D832 /* JTAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAViewController.h; sourceTree = "<group>"; };
+		1A5975C417994D2800E2D832 /* JTAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAViewController.m; sourceTree = "<group>"; };
+		1A5975C517994D2800E2D832 /* JTALabelsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JTALabelsView.xib; sourceTree = "<group>"; };
+		1A5975C617994D2800E2D832 /* JTAEmbossLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAEmbossLabel.h; sourceTree = "<group>"; };
+		1A5975C717994D2800E2D832 /* JTAEmbossLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAEmbossLabel.m; sourceTree = "<group>"; };
+		1A5975C817994D2800E2D832 /* JTAIndentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAIndentView.h; sourceTree = "<group>"; };
+		1A5975C917994D2800E2D832 /* JTAIndentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAIndentView.m; sourceTree = "<group>"; };
+		1A5975CA17994D2800E2D832 /* JTAInnerShadowLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAInnerShadowLayer.h; sourceTree = "<group>"; };
+		1A5975CB17994D2800E2D832 /* JTAInnerShadowLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAInnerShadowLayer.m; sourceTree = "<group>"; };
+		1A5975CC17994D2800E2D832 /* JTAIndentLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAIndentLabel.h; sourceTree = "<group>"; };
+		1A5975CD17994D2800E2D832 /* JTAIndentLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAIndentLabel.m; sourceTree = "<group>"; };
+		1A5975D517994D3500E2D832 /* JTAIndentImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAIndentImageView.h; sourceTree = "<group>"; };
+		1A5975D617994D3500E2D832 /* JTAIndentImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTAIndentImageView.m; sourceTree = "<group>"; };
+		1A5975D817994D4500E2D832 /* TwistedApeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwistedApeLogo.png; sourceTree = "<group>"; };
+		1A5975E517995FD800E2D832 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood.png; sourceTree = "<group>"; };
+		1A5975E71799605100E2D832 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
+		1A5975E91799609E00E2D832 /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A59759317994CC500E2D832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5975C017994CE300E2D832 /* CoreMotion.framework in Frameworks */,
+				1A5975BE17994CDA00E2D832 /* QuartzCore.framework in Frameworks */,
+				1A59759B17994CC500E2D832 /* UIKit.framework in Frameworks */,
+				1A59759D17994CC500E2D832 /* Foundation.framework in Frameworks */,
+				1A59759F17994CC500E2D832 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A59758B17994CC500E2D832 = {
+			isa = PBXGroup;
+			children = (
+				1A5975A017994CC500E2D832 /* CGIndentLayer */,
+				1A59759917994CC500E2D832 /* Frameworks */,
+				1A59759717994CC500E2D832 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A59759717994CC500E2D832 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A59759617994CC500E2D832 /* CGIndentLayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A59759917994CC500E2D832 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A5975BF17994CE300E2D832 /* CoreMotion.framework */,
+				1A5975BD17994CDA00E2D832 /* QuartzCore.framework */,
+				1A59759A17994CC500E2D832 /* UIKit.framework */,
+				1A59759C17994CC500E2D832 /* Foundation.framework */,
+				1A59759E17994CC500E2D832 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A5975A017994CC500E2D832 /* CGIndentLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1A5975C117994D2800E2D832 /* JTAAppDelegate.h */,
+				1A5975C217994D2800E2D832 /* JTAAppDelegate.m */,
+				1A5975C317994D2800E2D832 /* JTAViewController.h */,
+				1A5975C417994D2800E2D832 /* JTAViewController.m */,
+				1A5975C517994D2800E2D832 /* JTALabelsView.xib */,
+				1A5975C617994D2800E2D832 /* JTAEmbossLabel.h */,
+				1A5975C717994D2800E2D832 /* JTAEmbossLabel.m */,
+				1A5975C817994D2800E2D832 /* JTAIndentView.h */,
+				1A5975C917994D2800E2D832 /* JTAIndentView.m */,
+				1A5975CA17994D2800E2D832 /* JTAInnerShadowLayer.h */,
+				1A5975CB17994D2800E2D832 /* JTAInnerShadowLayer.m */,
+				1A5975CC17994D2800E2D832 /* JTAIndentLabel.h */,
+				1A5975CD17994D2800E2D832 /* JTAIndentLabel.m */,
+				1A5975D517994D3500E2D832 /* JTAIndentImageView.h */,
+				1A5975D617994D3500E2D832 /* JTAIndentImageView.m */,
+				1A5975A117994CC500E2D832 /* Supporting Files */,
+			);
+			path = CGIndentLayer;
+			sourceTree = "<group>";
+		};
+		1A5975A117994CC500E2D832 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A5975D817994D4500E2D832 /* TwistedApeLogo.png */,
+				1A5975E517995FD800E2D832 /* wood.png */,
+				1A5975E71799605100E2D832 /* wall.png */,
+				1A5975E91799609E00E2D832 /* metal.png */,
+				1A5975A217994CC500E2D832 /* CGIndentLayer-Info.plist */,
+				1A5975A317994CC600E2D832 /* InfoPlist.strings */,
+				1A5975A617994CC600E2D832 /* main.m */,
+				1A5975A817994CC600E2D832 /* CGIndentLayer-Prefix.pch */,
+				1A5975AC17994CC600E2D832 /* Default.png */,
+				1A5975AE17994CC600E2D832 /* Default@2x.png */,
+				1A5975B017994CC600E2D832 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A59759517994CC500E2D832 /* CGIndentLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A5975BA17994CC600E2D832 /* Build configuration list for PBXNativeTarget "CGIndentLayer" */;
+			buildPhases = (
+				1A59759217994CC500E2D832 /* Sources */,
+				1A59759317994CC500E2D832 /* Frameworks */,
+				1A59759417994CC500E2D832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CGIndentLayer;
+			productName = CGIndentLayer;
+			productReference = 1A59759617994CC500E2D832 /* CGIndentLayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A59758D17994CC500E2D832 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JTA;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "James Snook";
+			};
+			buildConfigurationList = 1A59759017994CC500E2D832 /* Build configuration list for PBXProject "CGIndentLayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1A59758B17994CC500E2D832;
+			productRefGroup = 1A59759717994CC500E2D832 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A59759517994CC500E2D832 /* CGIndentLayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A59759417994CC500E2D832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5975A517994CC600E2D832 /* InfoPlist.strings in Resources */,
+				1A5975AD17994CC600E2D832 /* Default.png in Resources */,
+				1A5975AF17994CC600E2D832 /* Default@2x.png in Resources */,
+				1A5975B117994CC600E2D832 /* Default-568h@2x.png in Resources */,
+				1A5975D017994D2800E2D832 /* JTALabelsView.xib in Resources */,
+				1A5975E617995FD800E2D832 /* wood.png in Resources */,
+				1A5975E81799605100E2D832 /* wall.png in Resources */,
+				1A5975EA1799609E00E2D832 /* metal.png in Resources */,
+				1A5975EB179967DD00E2D832 /* TwistedApeLogo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A59759217994CC500E2D832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5975A717994CC600E2D832 /* main.m in Sources */,
+				1A5975CE17994D2800E2D832 /* JTAAppDelegate.m in Sources */,
+				1A5975CF17994D2800E2D832 /* JTAViewController.m in Sources */,
+				1A5975D117994D2800E2D832 /* JTAEmbossLabel.m in Sources */,
+				1A5975D217994D2800E2D832 /* JTAIndentView.m in Sources */,
+				1A5975D317994D2800E2D832 /* JTAInnerShadowLayer.m in Sources */,
+				1A5975D417994D2800E2D832 /* JTAIndentLabel.m in Sources */,
+				1A5975D717994D3500E2D832 /* JTAIndentImageView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1A5975A317994CC600E2D832 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A5975A417994CC600E2D832 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A5975B817994CC600E2D832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		1A5975B917994CC600E2D832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A5975BB17994CC600E2D832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CGIndentLayer/CGIndentLayer-Prefix.pch";
+				INFOPLIST_FILE = "CGIndentLayer/CGIndentLayer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1A5975BC17994CC600E2D832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CGIndentLayer/CGIndentLayer-Prefix.pch";
+				INFOPLIST_FILE = "CGIndentLayer/CGIndentLayer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A59759017994CC500E2D832 /* Build configuration list for PBXProject "CGIndentLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A5975B817994CC600E2D832 /* Debug */,
+				1A5975B917994CC600E2D832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A5975BA17994CC600E2D832 /* Build configuration list for PBXNativeTarget "CGIndentLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A5975BB17994CC600E2D832 /* Debug */,
+				1A5975BC17994CC600E2D832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A59758D17994CC500E2D832 /* Project object */;
+}
