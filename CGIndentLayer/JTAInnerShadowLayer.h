@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@protocol CALayerDelegate <NSObject>
+
+/* This is called if drawOriginalImage is NO, and the delegate implements it.
+   It allows you to draw where the alpha values of the original image were. */
+@optional
+- (void)drawToshadowedRegionInContext:(CGContextRef)ctx;
+
+@end
+
 @interface JTAInnerShadowLayer : CALayer
 
+@property (weak) id<CALayerDelegate> delegate;
 @property (strong, nonatomic) UIColor *insideShadowColor;
 @property (strong, nonatomic) UIColor *outsideShadowColor;
 @property (strong, nonatomic) NSValue *outsideShadowSize;

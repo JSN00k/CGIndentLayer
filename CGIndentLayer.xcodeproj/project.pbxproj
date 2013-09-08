@@ -29,6 +29,7 @@
 		1A5975E81799605100E2D832 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975E71799605100E2D832 /* wall.png */; };
 		1A5975EA1799609E00E2D832 /* metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975E91799609E00E2D832 /* metal.png */; };
 		1A5975EB179967DD00E2D832 /* TwistedApeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5975D817994D4500E2D832 /* TwistedApeLogo.png */; };
+		1AAF501A17DC7F0A00D46B37 /* IMG_4229.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AAF501917DC7F0A00D46B37 /* IMG_4229.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		1A5975E517995FD800E2D832 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood.png; sourceTree = "<group>"; };
 		1A5975E71799605100E2D832 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
 		1A5975E91799609E00E2D832 /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
+		1AAF501917DC7F0A00D46B37 /* IMG_4229.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_4229.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		1A5975A117994CC500E2D832 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1AAF501917DC7F0A00D46B37 /* IMG_4229.jpg */,
 				1A5975D817994D4500E2D832 /* TwistedApeLogo.png */,
 				1A5975E517995FD800E2D832 /* wood.png */,
 				1A5975E71799605100E2D832 /* wall.png */,
@@ -213,6 +216,7 @@
 				1A5975E81799605100E2D832 /* wall.png in Resources */,
 				1A5975EA1799609E00E2D832 /* metal.png in Resources */,
 				1A5975EB179967DD00E2D832 /* TwistedApeLogo.png in Resources */,
+				1AAF501A17DC7F0A00D46B37 /* IMG_4229.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

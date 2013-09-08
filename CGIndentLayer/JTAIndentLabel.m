@@ -16,8 +16,9 @@ static void commonInit (JTAIndentLabel *self)
   [self setBackgroundColor:[UIColor clearColor]];
   JTAInnerShadowLayer *innerShadow = (JTAInnerShadowLayer *)[self layer];
   [innerShadow setClipForAnyAlpha:YES];
+  [innerShadow setInsideShadowColor:[UIColor colorWithWhite:0.0 alpha:0.9]];
   [innerShadow setOutsideShadowSize:CGSizeMake(0.0, 1.0) radius:1.0];
-  [innerShadow setInsideShadowSize:CGSizeMake (0.0, 4.0) radius:6.0];
+  [innerShadow setInsideShadowSize:CGSizeMake (0.0, 4.0) radius:7.0];
   /* Uncomment this to make the label also draw the text (won't work well
      with black text!*/
   //[innerShadow drawOriginalImage];

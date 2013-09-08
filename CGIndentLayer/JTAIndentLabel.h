@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JTAInnerShadowLayer.h"
 
-@interface JTAIndentLabel : UILabel
+@interface JTAIndentLabel : UILabel<CALayerDelegate>
+
 
 @end

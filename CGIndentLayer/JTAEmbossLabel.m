@@ -47,4 +47,10 @@ static void commonInit (JTAEmbossLabel *self)
   return [JTAInnerShadowLayer class];
 }
 
+- (void)drawToshadowedRegionInContext:(CGContextRef)ctx
+{
+  CGContextDrawImage (ctx, [self bounds],
+                      [[UIImage imageNamed:@"IMG_4229.jpg"] CGImage]);
+}
+
 @end

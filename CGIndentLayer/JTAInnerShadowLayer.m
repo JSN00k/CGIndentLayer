@@ -142,6 +142,7 @@ void dataRelease (void *info, const void *data, size_t size)
   CGContextSaveGState(bitmapCtx);
   if (!drawOriginalImage)
     CGContextClipToMask (bitmapCtx, bounds, image);
+    
   
   CGColorRef outsideShadow;
   
@@ -169,6 +170,9 @@ void dataRelease (void *info, const void *data, size_t size)
   
   CGContextSaveGState(bitmapCtx);
   CGContextClipToMask (bitmapCtx, bounds, mask);
+  if (delegate && [delegate respondsToSelector:@selector(drawToshadowedRegionInContext:)])
+    [delegate drawToshadowedRegionInContext:bitmapCtx];
+  
   shadowSize = CGSizeMake (0.0, -2.0);
   radius = 2.0;
   
