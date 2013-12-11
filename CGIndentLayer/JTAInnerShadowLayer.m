@@ -9,6 +9,9 @@
 #import "JTAInnerShadowLayer.h"
 
 @implementation JTAInnerShadowLayer
+{
+  BOOL retina;
+}
 
 @synthesize insideShadowColor;
 @synthesize outsideShadowColor;
@@ -24,6 +27,16 @@
           contents and these will be indented. We need to keep the original 
           setContents method so that we can use this at the end of the display
           method. */
+
+- (id)init
+{
+  if ((self = [super init])) {
+    retina = [[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)]
+                && ([UIScreen mainScreen].scale == 2.0);
+  }
+  
+  return self;
+}
 
 + (BOOL)needsDisplayForKey:(NSString *)key
 {
@@ -47,42 +60,65 @@ void dataRelease (void *info, const void *data, size_t size)
   if (!width || !height)
     return;
   
-  uint8_t *dataBytes = malloc (width * height * sizeof(uint32_t));
-  CGFloat bytesPerDrawingRow = width * 4;
+  NSUInteger backingWidth = width;
+  NSUInteger backingHeight = height;
+  
+  if (retina) {
+    /* Give the drawing area twice as many pixels in each direction so that we
+       can draw into it, and keep the nice retina lines. */
+    backingWidth  <<= 1;
+    backingHeight <<= 1;
+  }
+  
+  uint8_t *dataBytes = malloc (backingWidth * backingHeight * sizeof(uint32_t));
+  CGFloat bytesPerDrawingRow = backingWidth * 4;
   CGFloat bytesPerDrawingComponent = 4;
   CGColorSpaceRef rgbSpace = CGColorSpaceCreateDeviceRGB ();
   CGContextRef bitmapCtx = CGBitmapContextCreate (dataBytes,
-                                                  width,
-                                                  height,
+                                                  backingWidth,
+                                                  backingHeight,
                                                   8,
                                                   bytesPerDrawingRow,
                                                   rgbSpace,
                                                   kCGImageAlphaPremultipliedLast);
   
+  
+//  CGContextSetFillColorWithColor (bitmapCtx, [[UIColor blueColor] CGColor]);
+  //CGContextStrokeRect (bitmapCtx, CGRectMake (0.0, 0.0, width, height));
+ // NSLog(@"height = %d", (int)height);
+
+  
   id delegate = [self delegate];
   CGImageRef mask;
   
   CGContextSaveGState (bitmapCtx);
-  if (delegate && [delegate respondsToSelector:@selector (displayLayer:)]) {
-    [delegate displayLayer:self];
-    id content = [self contents];
-    if ([content isKindOfClass:[UIImage class]])
-      mask = (CGImageRef)CFRetain ((__bridge CGImageRef)[self contents]);
-    else {
-      /* CGLayers save things in a backing form that isn't documented normally. */
-      CFRelease (rgbSpace);
-      CFRelease (bitmapCtx);
-      free (dataBytes);
-      [super display];
-      return;
-    }
-  } else {
-    if (delegate && [delegate respondsToSelector:@selector (drawLayer:inContext:)])
-      [delegate drawLayer:self inContext:bitmapCtx];
-    else
-      [self drawInContext:bitmapCtx];
+  {
+    /* Set an affine transform so that when we draw we draw to the correct place 
+       (rather than our double sized context. */
+    if (retina)
+      CGContextConcatCTM(bitmapCtx, CGAffineTransformMake(2.0, 0.0, 0.0, 2.0, 0.0, 0.0));
     
-    mask = CGBitmapContextCreateImage (bitmapCtx);
+    if (delegate && [delegate respondsToSelector:@selector (displayLayer:)]) {
+      [delegate displayLayer:self];
+      id content = [self contents];
+      if ([content isKindOfClass:[UIImage class]])
+        mask = (CGImageRef)CFRetain ((__bridge CGImageRef)[self contents]);
+      else {
+        /* CGLayers save things in a backing form that isn't documented normally. */
+        CFRelease (rgbSpace);
+        CFRelease (bitmapCtx);
+        free (dataBytes);
+        [super display];
+        return;
+      }
+    } else {
+      if (delegate && [delegate respondsToSelector:@selector (drawLayer:inContext:)])
+        [delegate drawLayer:self inContext:bitmapCtx];
+      else
+        [self drawInContext:bitmapCtx];
+      
+      mask = CGBitmapContextCreateImage (bitmapCtx);
+    }
   }
   CGContextRestoreGState (bitmapCtx);
   
@@ -95,13 +131,13 @@ void dataRelease (void *info, const void *data, size_t size)
   baseData.byteVals[0] = 0.0;
   baseData.byteVals[1] = 0.0;
   baseData.byteVals[2] = 0.0;
-  unsigned inverseSize = width * height * sizeof (uint32_t);
+  unsigned inverseSize = backingWidth * backingHeight * sizeof (uint32_t);
   uint32_t *shadowImageData = malloc(inverseSize);
   
   /* Create the inverse mask. This does a lot of operations, possibly could be
      done with OpenGL shader, or using the Accellerate framewok. */
-  for (int row = 0; row < height; ++row) {
-    for (int column = 0; column < width; ++column) {
+  for (int row = 0; row < backingHeight; ++row) {
+    for (int column = 0; column < backingWidth; ++column) {
       if (clipForAnyAlpha) {
       if (dataBytes[(int)(row * bytesPerDrawingRow + column * bytesPerDrawingComponent) + 3] > 1)
         baseData.byteVals[3] = 0;
@@ -111,19 +147,19 @@ void dataRelease (void *info, const void *data, size_t size)
       } else {
         baseData.byteVals[3] = 255 - dataBytes[(int)(row * bytesPerDrawingRow + column * bytesPerDrawingComponent) + 3];
       }
-      shadowImageData[(int)(row * width + column)] = baseData.intVal;
+      shadowImageData[(int)(row * backingWidth + column)] = baseData.intVal;
     }
   }
   
-  CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL,
-                                                                shadowImageData,
-                                                                inverseSize,
-                                                                dataRelease);
-  CGImageRef image = CGImageCreate (width,
-                                    height,
+  CGDataProviderRef dataProvider = CGDataProviderCreateWithData (NULL,
+                                                                 shadowImageData,
+                                                                 inverseSize,
+                                                                 dataRelease);
+  CGImageRef image = CGImageCreate (backingWidth,
+                                    backingHeight,
                                     8,
                                     32,
-                                    4 * width,
+                                    4 * backingWidth,
                                     rgbSpace,
                                     kCGImageAlphaPremultipliedLast,
                                     dataProvider,
@@ -131,72 +167,84 @@ void dataRelease (void *info, const void *data, size_t size)
                                     NO,
                                     kCGRenderingIntentDefault);
   CFRelease (dataProvider);
-  CGContextClearRect (bitmapCtx, bounds);
+  
+
+  CGContextClearRect (bitmapCtx, CGRectMake (0.0, 0.0, backingWidth, backingHeight));
+
   /* Create a bitmap of all the space that isn't drawn. This will make a mask 
      that can be used to draw only into the area previously drawn, and also will
      be the the correct values for drawing the shadow. */
   
-  CGContextConcatCTM (bitmapCtx, CGAffineTransformMake (1.0, 0.0,
-                                                        0.0, -1.0, 0.0, height));
-  
-  CGContextSaveGState(bitmapCtx);
-  if (!drawOriginalImage)
-    CGContextClipToMask (bitmapCtx, bounds, image);
-    
-  
-  CGColorRef outsideShadow;
-  
-  if (!outsideShadowColor) {
-    CGFloat whiteCol[] = { 1.0, 1.0, 1.0, 0.4 };
-    outsideShadow = CGColorCreate (rgbSpace, whiteCol);
-  } else
-    outsideShadow = (CGColorRef)CFRetain ([outsideShadowColor CGColor]);
-  
+  if (retina) {
+    CGContextConcatCTM (bitmapCtx, CGAffineTransformMake (2.0,  0.0,
+                                                          0.0, -2.0,
+                                                          0.0,  2.0 * height));
+  } else {
+    CGContextConcatCTM (bitmapCtx, CGAffineTransformMake (1.0,  0.0,
+                                                          0.0, -1.0,
+                                                          0.0,  height));
+  }
   
   CGSize shadowSize = CGSizeMake (0.0, -1.0);
   CGFloat radius = 2.0;
-  
-  if (outsideShadowSize) {
-    [outsideShadowSize getValue:&shadowSize];
-    shadowSize = CGSizeMake (shadowSize.width, -shadowSize.height);
+  CGColorRef outsideShadow;
+  CGContextSaveGState(bitmapCtx);
+  {
+    if (!drawOriginalImage)
+      CGContextClipToMask (bitmapCtx, bounds, image);
+    
+    if (!outsideShadowColor) {
+      CGFloat whiteCol[] = { 1.0, 1.0, 1.0, 0.4 };
+      outsideShadow = CGColorCreate (rgbSpace, whiteCol);
+    } else
+      outsideShadow = (CGColorRef)CFRetain ([outsideShadowColor CGColor]);
+    
+    
+    if (outsideShadowSize) {
+      [outsideShadowSize getValue:&shadowSize];
+      shadowSize = CGSizeMake (shadowSize.width, -shadowSize.height);
+    }
+    
+    if (outsideShadowRadius)
+      radius = [outsideShadowRadius floatValue];
+    
+    CGContextSetShadowWithColor (bitmapCtx, shadowSize, radius, outsideShadow);
+    CGContextDrawImage (bitmapCtx, bounds, mask);
   }
-  
-  if (outsideShadowRadius)
-    radius = [outsideShadowRadius floatValue];
-  
-  CGContextSetShadowWithColor (bitmapCtx, shadowSize, radius, outsideShadow);
-  CGContextDrawImage (bitmapCtx, bounds, mask);
   CGContextRestoreGState (bitmapCtx);
   
   CGContextSaveGState(bitmapCtx);
-  CGContextClipToMask (bitmapCtx, bounds, mask);
-  if (delegate && [delegate respondsToSelector:@selector(drawToshadowedRegionInContext:)])
-    [delegate drawToshadowedRegionInContext:bitmapCtx];
-  
-  shadowSize = CGSizeMake (0.0, -2.0);
-  radius = 2.0;
-  
-  if (insideShadowSize) {
-    [insideShadowSize getValue:&shadowSize];
-    shadowSize = CGSizeMake (shadowSize.width, -shadowSize.height);
+  {
+    CGContextClipToMask (bitmapCtx, bounds, mask);
+    if (delegate && [delegate respondsToSelector:@selector(drawToshadowedRegionInContext:)])
+      [delegate drawToshadowedRegionInContext:bitmapCtx];
+    
+    shadowSize = CGSizeMake (0.0, -2.0);
+    radius = 2.0;
+    
+    if (insideShadowSize) {
+      [insideShadowSize getValue:&shadowSize];
+      shadowSize = CGSizeMake (shadowSize.width, -shadowSize.height);
+    }
+    
+    if (insideShadowRadius)
+      radius = [insideShadowRadius floatValue];
+    
+    
+    CGColorRef shadowColor;
+    if (insideShadowColor)
+      shadowColor = (CGColorRef)CFRetain ([insideShadowColor CGColor]);
+    else {
+      CGFloat defaultVals[] = { 0.0, 0.0, 0.0, 0.75 };
+      shadowColor = CGColorCreate (rgbSpace, defaultVals);
+    }
+    
+    CGContextSetShadowWithColor (bitmapCtx, shadowSize, radius, shadowColor);
+    CGContextDrawImage (bitmapCtx, bounds, image);
+    CFRelease (shadowColor);
   }
-  
-  if (insideShadowRadius)
-    radius = [insideShadowRadius floatValue];
-  
-  
-  CGColorRef shadowColor;
-  if (insideShadowColor)
-    shadowColor = (CGColorRef)CFRetain ([insideShadowColor CGColor]);
-  else {
-    CGFloat defaultVals[] = { 0.0, 0.0, 0.0, 0.75 };
-    shadowColor = CGColorCreate (rgbSpace, defaultVals);
-  }
-  
-  CGContextSetShadowWithColor (bitmapCtx, shadowSize, radius, shadowColor);
-  CGContextDrawImage (bitmapCtx, bounds, image);
   CGContextRestoreGState(bitmapCtx);
-  CFRelease (shadowColor);
+  
 
   CFRelease (mask);
   CFRelease (outsideShadow);
