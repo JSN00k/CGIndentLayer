@@ -70,7 +70,7 @@ void dataRelease (void *info, const void *data, size_t size)
     backingHeight <<= 1;
   }
   
-  uint8_t *dataBytes = malloc (backingWidth * backingHeight * sizeof(uint32_t));
+  uint8_t *dataBytes = calloc (backingWidth * backingHeight, sizeof(uint32_t));
   CGFloat bytesPerDrawingRow = backingWidth * 4;
   CGFloat bytesPerDrawingComponent = 4;
   CGColorSpaceRef rgbSpace = CGColorSpaceCreateDeviceRGB ();
