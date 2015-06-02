@@ -8,4 +8,4 @@ This repository contains an example app showing the workings of `JTAInnerShadowL
 
 ### Contact
 
-If you have any questions my contact details are [here](http://www.twistedape.me.uk/contact).
+If you have any questions my contact details are [here](http://www.twistedape.me.uk/blog/contact).
